@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molintas Water Services - Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+    <div id="login-page" class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">
+                    <i data-lucide="droplets" class="logo-icon"></i>
+                    <h1>Molintas Water Services</h1>
+                </div>
+                <h2>Admin Login</h2>
+                <p>Please enter your credentials to access the dashboard</p>
+            </div>
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-btn">
+                    <span>Sign In</span>
+                    <i data-lucide="log-in"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="dashboard" class="dashboard-container" style="display: none;">
+
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i data-lucide="droplets" class="logo-icon"></i>
+                    <span>Molintas Water</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active">
+                        <a href="#" data-section="dashboard">
+                            <i data-lucide="layout-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" data-section="billing">
+                            <i data-lucide="receipt"></i>
+                            <span>Billing Management</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" data-section="customers">
+                            <i data-lucide="users"></i>
+                            <span>Customer Management</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" data-section="consumption">
+                            <i data-lucide="trending-up"></i>
+                            <span>Water Consumption</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" data-section="reports">
+                            <i data-lucide="bar-chart-3"></i>
+                            <span>Reports & Analytics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" data-section="payments">
+                            <i data-lucide="credit-card"></i>
+                            <span>Payment Tracking</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" data-section="settings">
+                            <i data-lucide="settings"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+
+        <main class="main-content">
+
+            <header class="content-header">
+                <div class="header-left">
+                    <button id="mobile-menu-toggle" class="mobile-menu-btn">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="title-container">
+                        <h1 id="page-title">Dashboard</h1>
+                        <p id="page-subtitle">Overview of your water services operations</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="admin-profile">
+                        <i data-lucide="bell"></i>
+                        <div class="admin-info">
+                            <span class="admin-name">Admin User</span>
+                            <span class="admin-role">Administrator</span>
+                        </div>
+                        <i data-lucide="user"></i>
+                    </div>
+                </div>
+            </header>
+
+
+            <div id="dashboard-content" class="dashboard-content">
+
+                <section id="dashboard-section" class="content-section active">
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i data-lucide="users"></i>
+                            </div>
+                            <div class="metric-info">
+                                <h3>Total Customers</h3>
+                                <div class="metric-value">1,482</div>
+                                <div class="metric-change positive">
+                                    <i data-lucide="trending-up"></i>
+                                    <span>+2.5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i data-lucide="dollar-sign"></i>
+                            </div>
+                            <div class="metric-info">
+                                <h3>Monthly Revenue</h3>
+                                <div class="metric-value">$45,230</div>
+                                <div class="metric-change positive">
+                                    <i data-lucide="trending-up"></i>
+                                    <span>+5.8%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i data-lucide="droplets"></i>
+                            </div>
+                            <div class="metric-info">
+                                <h3>Water Consumption</h3>
+                                <div class="metric-value">125,450 L</div>
+                                <div class="metric-change negative">
+                                    <i data-lucide="trending-down"></i>
+                                    <span>-1.2%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i data-lucide="alert-triangle"></i>
+                            </div>
+                            <div class="metric-info">
+                                <h3>Active Alerts</h3>
+                                <div class="metric-value">7</div>
+                                <div class="metric-change neutral">
+                                    <i data-lucide="minus"></i>
+                                    <span>No change</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Recent Activities</h3>
+                                <button class="view-all-btn">View All</button>
+                            </div>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon success">
+                                        <i data-lucide="check-circle"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p class="activity-title">Payment received from John Doe</p>
+                                        <span class="activity-time">2 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon warning">
+                                        <i data-lucide="alert-circle"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p class="activity-title">High water consumption detected - Block A</p>
+                                        <span class="activity-time">4 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon info">
+                                        <i data-lucide="user-plus"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p class="activity-title">New customer registration - Sarah Wilson</p>
+                                        <span class="activity-time">1 day ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon error">
+                                        <i data-lucide="alert-triangle"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p class="activity-title">System maintenance scheduled</p>
+                                        <span class="activity-time">2 days ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Water Usage Chart</h3>
+                            </div>
+                            <div class="chart-placeholder">
+                                <div class="chart-bars">
+                                    <div class="chart-bar" style="height: 60%">
+                                        <span>Mon</span>
+                                    </div>
+                                    <div class="chart-bar" style="height: 80%">
+                                        <span>Tue</span>
+                                    </div>
+                                    <div class="chart-bar" style="height: 45%">
+                                        <span>Wed</span>
+                                    </div>
+                                    <div class="chart-bar" style="height: 90%">
+                                        <span>Thu</span>
+                                    </div>
+                                    <div class="chart-bar" style="height: 70%">
+                                        <span>Fri</span>
+                                    </div>
+                                    <div class="chart-bar" style="height: 55%">
+                                        <span>Sat</span>
+                                    </div>
+                                    <div class="chart-bar" style="height: 40%">
+                                        <span>Sun</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="billing-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Billing Management</h2>
+                        <button class="primary-btn">
+                            <i data-lucide="plus"></i>
+                            <span>Create Invoice</span>
+                        </button>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Recent Invoices</h3>
+                            <div class="search-filter">
+                                <input type="text" placeholder="Search invoices..." class="search-input">
+                                <select class="filter-select">
+                                    <option>All Status</option>
+                                    <option>Paid</option>
+                                    <option>Pending</option>
+                                    <option>Overdue</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="data-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Invoice ID</th>
+                                        <th>Customer</th>
+                                        <th>Amount</th>
+                                        <th>Due Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#INV-001</td>
+                                        <td>John Doe</td>
+                                        <td>$150.00</td>
+                                        <td>2025-11-20</td>
+                                        <td><span class="status-badge success">Paid</span></td>
+                                        <td>
+                                            <button class="action-btn">
+                                                <i data-lucide="eye"></i>
+                                            </button>
+                                            <button class="action-btn">
+                                                <i data-lucide="edit"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#INV-002</td>
+                                        <td>Sarah Wilson</td>
+                                        <td>$200.00</td>
+                                        <td>2025-11-18</td>
+                                        <td><span class="status-badge warning">Pending</span></td>
+                                        <td>
+                                            <button class="action-btn">
+                                                <i data-lucide="eye"></i>
+                                            </button>
+                                            <button class="action-btn">
+                                                <i data-lucide="edit"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#INV-003</td>
+                                        <td>Mike Johnson</td>
+                                        <td>$175.00</td>
+                                        <td>2025-11-15</td>
+                                        <td><span class="status-badge error">Overdue</span></td>
+                                        <td>
+                                            <button class="action-btn">
+                                                <i data-lucide="eye"></i>
+                                            </button>
+                                            <button class="action-btn">
+                                                <i data-lucide="edit"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#INV-004</td>
+                                        <td>Emma Davis</td>
+                                        <td>$225.00</td>
+                                        <td>2025-11-22</td>
+                                        <td><span class="status-badge success">Paid</span></td>
+                                        <td>
+                                            <button class="action-btn">
+                                                <i data-lucide="eye"></i>
+                                            </button>
+                                            <button class="action-btn">
+                                                <i data-lucide="edit"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="customers-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Customer Management</h2>
+                        <button class="primary-btn">
+                            <i data-lucide="user-plus"></i>
+                            <span>Add Customer</span>
+                        </button>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Customer List</h3>
+                            <div class="search-filter">
+                                <input type="text" placeholder="Search customers..." class="search-input">
+                                <select class="filter-select">
+                                    <option>All Plans</option>
+                                    <option>Basic</option>
+                                    <option>Premium</option>
+                                    <option>Enterprise</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="data-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Customer ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Plan</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#CUST-001</td>
+                                        <td>John Doe</td>
+                                        <td>john.doe@email.com</td>
+                                        <td>Premium</td>
+                                        <td><span class="status-badge success">Active</span></td>
+                                        <td>
+                                            <button class="action-btn">
+                                                <i data-lucide="eye"></i>
+                                            </button>
+                                            <button class="action-btn">
+                                                <i data-lucide="edit"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#CUST-002</td>
+                                        <td>Sarah Wilson</td>
+                                        <td>sarah.wilson@email.com</td>
+                                        <td>Basic</td>
+                                        <td><span class="status-badge success">Active</span></td>
+                                        <td>
+                                            <button class="action-btn">
+                                                <i data-lucide="eye"></i>
+                                            </button>
+                                            <button class="action-btn">
+                                                <i data-lucide="edit"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#CUST-003</td>
+                                        <td>Mike Johnson</td>
+                                        <td>mike.johnson@email.com</td>
+                                        <td>Enterprise</td>
+                                        <td><span class="status-badge warning">Inactive</span></td>
+                                        <td>
+                                            <button class="action-btn">
+                                                <i data-lucide="eye"></i>
+                                            </button>
+                                            <button class="action-btn">
+                                                <i data-lucide="edit"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="consumption-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Water Consumption Monitoring</h2>
+                        <button class="primary-btn">
+                            <i data-lucide="download"></i>
+                            <span>Export Data</span>
+                        </button>
+                    </div>
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Daily Consumption</h3>
+                            </div>
+                            <div class="consumption-chart">
+                                <div class="chart-legend">
+                                    <span class="legend-item">
+                                        <span class="legend-color" style="background: #0091FF;"></span>
+                                        Current Usage
+                                    </span>
+                                    <span class="legend-item">
+                                        <span class="legend-color" style="background: #10B981;"></span>
+                                        Previous Period
+                                    </span>
+                                </div>
+                                <div class="simple-chart">
+                                    <svg viewBox="0 0 400 200" class="chart-svg">
+                                        <polyline points="20,120 60,90 100,100 140,60 180,80 220,50 260,70 300,40 340,60 380,45" 
+                                                  fill="none" stroke="#0091FF" stroke-width="3"/>
+                                        <polyline points="20,140 60,130 100,145 140,110 180,125 220,105 260,115 300,95 340,110 380,100" 
+                                                  fill="none" stroke="#10B981" stroke-width="2" stroke-dasharray="5,5"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Usage by Zone</h3>
+                            </div>
+                            <div class="zone-stats">
+                                <div class="zone-item">
+                                    <div class="zone-info">
+                                        <span class="zone-name">Block A</span>
+                                        <span class="zone-usage">45,200 L</span>
+                                    </div>
+                                    <div class="zone-bar">
+                                        <div class="zone-progress" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="zone-item">
+                                    <div class="zone-info">
+                                        <span class="zone-name">Block B</span>
+                                        <span class="zone-usage">38,750 L</span>
+                                    </div>
+                                    <div class="zone-bar">
+                                        <div class="zone-progress" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                                <div class="zone-item">
+                                    <div class="zone-info">
+                                        <span class="zone-name">Block C</span>
+                                        <span class="zone-usage">41,500 L</span>
+                                    </div>
+                                    <div class="zone-bar">
+                                        <div class="zone-progress" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="reports-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Reports & Analytics</h2>
+                        <div class="date-range">
+                            <button class="secondary-btn">Last 7 days</button>
+                            <button class="secondary-btn">Last 30 days</button>
+                            <button class="secondary-btn active">This month</button>
+                        </div>
+                    </div>
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Revenue Analytics</h3>
+                            </div>
+                            <div class="analytics-chart">
+                                <div class="bar-chart">
+                                    <div class="bar-item" style="height: 60%">
+                                        <span class="bar-label">Jan</span>
+                                        <div class="bar-fill"></div>
+                                    </div>
+                                    <div class="bar-item" style="height: 75%">
+                                        <span class="bar-label">Feb</span>
+                                        <div class="bar-fill"></div>
+                                    </div>
+                                    <div class="bar-item" style="height: 80%">
+                                        <span class="bar-label">Mar</span>
+                                        <div class="bar-fill"></div>
+                                    </div>
+                                    <div class="bar-item" style="height: 85%">
+                                        <span class="bar-label">Apr</span>
+                                        <div class="bar-fill"></div>
+                                    </div>
+                                    <div class="bar-item" style="height: 70%">
+                                        <span class="bar-label">May</span>
+                                        <div class="bar-fill"></div>
+                                    </div>
+                                    <div class="bar-item" style="height: 90%">
+                                        <span class="bar-label">Jun</span>
+                                        <div class="bar-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Key Metrics</h3>
+                            </div>
+                            <div class="metrics-detail">
+                                <div class="detail-metric">
+                                    <div class="detail-info">
+                                        <span class="detail-label">Average Daily Usage</span>
+                                        <span class="detail-value">17,921 L</span>
+                                    </div>
+                                    <div class="detail-icon">
+                                        <i data-lucide="droplets"></i>
+                                    </div>
+                                </div>
+                                <div class="detail-metric">
+                                    <div class="detail-info">
+                                        <span class="detail-label">Collection Rate</span>
+                                        <span class="detail-value">94.2%</span>
+                                    </div>
+                                    <div class="detail-icon">
+                                        <i data-lucide="target"></i>
+                                    </div>
+                                </div>
+                                <div class="detail-metric">
+                                    <div class="detail-info">
+                                        <span class="detail-label">Customer Satisfaction</span>
+                                        <span class="detail-value">4.8/5.0</span>
+                                    </div>
+                                    <div class="detail-icon">
+                                        <i data-lucide="star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="payments-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Payment Tracking</h2>
+                        <button class="primary-btn">
+                            <i data-lucide="plus"></i>
+                            <span>Record Payment</span>
+                        </button>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Payment History</h3>
+                            <div class="search-filter">
+                                <input type="text" placeholder="Search payments..." class="search-input">
+                                <select class="filter-select">
+                                    <option>All Methods</option>
+                                    <option>Credit Card</option>
+                                    <option>Bank Transfer</option>
+                                    <option>Cash</option>
+                                    <option>Online</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="data-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <th>Customer</th>
+                                        <th>Amount</th>
+                                        <th>Method</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#TXN-001</td>
+                                        <td>John Doe</td>
+                                        <td>$150.00</td>
+                                        <td>Credit Card</td>
+                                        <td>2025-11-15</td>
+                                        <td><span class="status-badge success">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TXN-002</td>
+                                        <td>Sarah Wilson</td>
+                                        <td>$200.00</td>
+                                        <td>Bank Transfer</td>
+                                        <td>2025-11-14</td>
+                                        <td><span class="status-badge success">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TXN-003</td>
+                                        <td>Mike Johnson</td>
+                                        <td>$175.00</td>
+                                        <td>Online</td>
+                                        <td>2025-11-13</td>
+                                        <td><span class="status-badge warning">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TXN-004</td>
+                                        <td>Emma Davis</td>
+                                        <td>$225.00</td>
+                                        <td>Cash</td>
+                                        <td>2025-11-12</td>
+                                        <td><span class="status-badge success">Completed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="settings-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Settings</h2>
+                        <button class="primary-btn">
+                            <i data-lucide="save"></i>
+                            <span>Save Changes</span>
+                        </button>
+                    </div>
+                    <div class="settings-grid">
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>System Configuration</h3>
+                            </div>
+                            <div class="settings-form">
+                                <div class="form-group">
+                                    <label for="company-name">Company Name</label>
+                                    <input type="text" id="company-name" value="Molintas Water Services" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="billing-cycle">Billing Cycle</label>
+                                    <select id="billing-cycle" class="form-select">
+                                        <option>Monthly</option>
+                                        <option>Quarterly</option>
+                                        <option>Semi-Annually</option>
+                                        <option>Annually</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="water-rate">Water Rate (per liter)</label>
+                                    <input type="number" id="water-rate" value="0.05" step="0.01" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="alert-threshold">Alert Threshold (Liters)</label>
+                                    <input type="number" id="alert-threshold" value="500" class="form-input">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Notification Settings</h3>
+                            </div>
+                            <div class="settings-form">
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                        Email notifications for overdue payments
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                        SMS alerts for high consumption
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        Weekly usage reports
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                        System maintenance notifications
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>User Management</h3>
+                            </div>
+                            <div class="user-list">
+                                <div class="user-item">
+                                    <div class="user-avatar">
+                                        <i data-lucide="user"></i>
+                                    </div>
+                                    <div class="user-info">
+                                        <span class="user-name">Admin User</span>
+                                        <span class="user-role">Administrator</span>
+                                    </div>
+                                    <div class="user-actions">
+                                        <button class="action-btn">
+                                            <i data-lucide="edit"></i>
+                                        </button>
+                                        <button class="action-btn">
+                                            <i data-lucide="trash-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="user-item">
+                                    <div class="user-avatar">
+                                        <i data-lucide="user"></i>
+                                    </div>
+                                    <div class="user-info">
+                                        <span class="user-name">Manager User</span>
+                                        <span class="user-role">Manager</span>
+                                    </div>
+                                    <div class="user-actions">
+                                        <button class="action-btn">
+                                            <i data-lucide="edit"></i>
+                                        </button>
+                                        <button class="action-btn">
+                                            <i data-lucide="trash-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+
+        lucide.createIcons();
+
+
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+
+            if (username === 'admin' && password === 'admin123') {
+                document.getElementById('login-page').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'flex';
+            } else {
+                alert('Invalid credentials. Please use username: admin, password: admin123');
+            }
+        });
+
+
+        document.querySelectorAll('.nav-item a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+
+                this.parentElement.classList.add('active');
+                
+
+                const targetSection = this.getAttribute('data-section');
+                
+
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.classList.remove('active');
+                    section.style.display = 'none';
+                });
+                
+
+                const targetSectionElement = document.getElementById(targetSection + '-section');
+                if (targetSectionElement) {
+                    targetSectionElement.style.display = 'block';
+                    targetSectionElement.classList.add('active');
+                }
+                
+
+                const titles = {
+                    dashboard: { title: 'Dashboard', subtitle: 'Overview of your water services operations' },
+                    billing: { title: 'Billing Management', subtitle: 'Manage invoices and billing cycles' },
+                    customers: { title: 'Customer Management', subtitle: 'View and manage customer information' },
+                    consumption: { title: 'Water Consumption', subtitle: 'Monitor and analyze water usage patterns' },
+                    reports: { title: 'Reports & Analytics', subtitle: 'Generate reports and view analytics' },
+                    payments: { title: 'Payment Tracking', subtitle: 'Track payments and transaction history' },
+                    settings: { title: 'Settings', subtitle: 'Configure system settings and preferences' }
+                };
+                
+                document.getElementById('page-title').textContent = titles[targetSection].title;
+                document.getElementById('page-subtitle').textContent = titles[targetSection].subtitle;
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const allSections = document.querySelectorAll('.content-section');
+            allSections.forEach(section => {
+                section.style.display = 'none';
+                section.classList.remove('active');
+            });
+            
+
+            const dashboardSection = document.getElementById('dashboard-section');
+            if (dashboardSection) {
+                dashboardSection.style.display = 'block';
+                dashboardSection.classList.add('active');
+            }
+            
+
+            const dashboardNavItem = document.querySelector('.nav-item a[data-section="dashboard"]').parentElement;
+            dashboardNavItem.classList.add('active');
+        });
+
+
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('mobile-open');
+            
+
+            const menuIcon = this.querySelector('i');
+            if (sidebar.classList.contains('mobile-open')) {
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            
+
+            lucide.createIcons();
+        });
+
+
+        document.addEventListener('click', function(e) {
+            const sidebar = document.querySelector('.sidebar');
+            const mobileBtn = document.getElementById('mobile-menu-toggle');
+            
+            if (window.innerWidth <= 768 && 
+                sidebar.classList.contains('mobile-open') && 
+                !sidebar.contains(e.target) && 
+                !mobileBtn.contains(e.target)) {
+                sidebar.classList.remove('mobile-open');
+                
+
+                const menuIcon = mobileBtn.querySelector('i');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>
